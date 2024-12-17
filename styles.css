@@ -1,0 +1,592 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #2f4f4f;
+    color: white;
+    padding-top: 20px;
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar a {
+    padding: 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #28a745;
+    border-bottom: 2px solid #333;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+#main-content {
+    transition: margin-left 0.5s;
+    padding: 20px;
+}
+
+.toggle-btn {
+    font-size: 30px;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    cursor: pointer;
+    z-index: 1000;
+    color: #333;
+}
+
+/* Header */
+.tourism-header {
+    text-align: center;
+    background: url('https://via.placeholder.com/1200x600?text=Travel+the+World') no-repeat center center/cover;
+    padding: 80px 0;
+    color: white;
+    background-size: cover;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.tourism-header h1 {
+    font-size: 4.5rem;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+}
+
+.tourism-header p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.tourism-header img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+/* Search Bar */
+.search-container {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.search-container .input-group {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-container .form-control {
+    border-radius: none;
+    height: 30px;
+    width: 400px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    border-bottom: 2px solid rgb(78, 78, 78);
+}
+
+.search-container button {
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 24px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+}
+
+/* Content Section */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h5 {
+    font-size: 1.6rem;
+    color: #333;
+}
+
+.card-body p {
+    color: #777;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.card-body a {
+    display: block;
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.card-body a:hover {
+    background-color: #218838;
+}
+
+/* Carousel */
+.carousel-inner img {
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.carousel-inner img:hover {
+    transform: scale(1.05);
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.testimonial-card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.05);
+}
+
+.testimonial-card p {
+    font-size: 1.2rem;
+    color: #777;
+    line-height: 1.8;
+}
+
+#theme-toggle {
+    font-size: 18px;
+    background-color: #2f4f4f;
+    color: white;
+    padding-left: 8px;
+    border: none;
+    border-radius: none;
+    outline: none;
+    width: 100%;
+    height: 55px;
+    text-align: left;
+}
+
+#theme-toggle:hover {
+    background-color: #218838;
+}
+
+#theme-icon {
+    padding-right: 10px;
+}
+
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    /* Hidden initially */
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#scrollToTop:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+/* Newsletter Section */
+.newsletter {
+    background-color: #2f4f4f;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.newsletter h3 {
+    font-size: 1.8rem;
+}
+
+.newsletter p {
+    font-size: 1rem;
+    margin: 10px 0 20px;
+}
+
+.newsletter form {
+    display: inline-block;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: #218838;
+}
+
+/* Scroll-to-Top Button */
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+}
+
+#scrollToTop:hover {
+    background-color: #218838;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-mode .card {
+    background-color: #1e1e1e;
+}
+
+.dark-mode .footer,
+.dark-mode .newsletter {
+    background-color: #1e1e1e;
+}
+
+.dark-mode .card-body a {
+    background-color: #444;
+}
+
+.dark-mode .card-body a:hover {
+    background-color: #555;
+}
+
+.testimonial-card strong {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background-color: #28a745;
+    z-index: 1000;
+    transition: width 0.2s ease-out;
+}
+
+#about-exploring {
+    background: #f9f9f9;
+    padding: 50px 20px;
+}
+
+#about-exploring .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#about-exploring h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#about-exploring p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+}
+
+.about-text h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.about-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-text ul li {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.about-text ul li::before {
+    content: "✔";
+    color: #007bff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em;
+}
+
+.about-video {
+    flex: 1;
+    text-align: center;
+}
+
+.about-video iframe {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#niz {
+    color: #777;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    ;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+
+/* Footer Section */
+.footer {
+    background-color: #28a745;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.footer a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer .social-icons i {
+    font-size: 1.8rem;
+    margin: 0 20px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icons i:hover {
+    color: #218838;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .tourism-header h1 {
+        font-size: 3.5rem;
+    }
+
+    .tourism-header p {
+        font-size: 1.2rem;
+    }
+
+    .content .card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .carousel-inner img {
+        height: 400px;
+    }
+
+    .search-container .input-group {
+        max-width: fit-content;
+        display: grid;
+        grid-gap: 10px;
+        align-items: center;
+    }
+
+    .footer .social-icons i {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .tourism-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .tourism-header p {
+        font-size: 1rem;
+    }
+
+    .content .card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .testimonial-card {
+        margin: 20px;
+        padding: 30px;
+    }
+
+    .footer {
+        padding: 30px 0;
+    }
+
+    .footer .social-icons i {
+        font-size: 1.2rem;
+    }
+}
+.mbili {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #28a745;
+    color: #ffffff;
+}

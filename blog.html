@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore|Travel Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: url('https://via.placeholder.com/1200x600?text=Travel+the+World') no-repeat center center/cover;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: #218838;
+        }
+
+        .card {
+            transition: transform 0.2s;
+            /* Animation */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            /* Scale on hover */
+        }
+
+        .sidebar {
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .comment-section {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Travel Tips & Articles</h1>
+        <p>Your guide to exploring the globe</p>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Your Guide to Exploration</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destination.html">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adventure.html">Adventures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">Events</a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-3">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                    <button class="btn btn-outline-success ms-2" type="button" onclick="searchPosts()">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-md-8">
+                <div class="row" id="postsContainer">
+                    <!-- Blog Post 1 -->
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <img src="https://via.placeholder.com/600x260?text=Travel+Essentials" class="card-img-top"
+                                alt="Travel Essentials">
+                            <div class="card-body">
+                                <h5 class="card-title">10 Essential Tips for First-Time Travelers</h5>
+                                <p class="card-text">Discover must-have tips for your first trip!</p>
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#tipsModal">Learn
+                                    More</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Posted on <span>December 10, 2023</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Blog Post 2 -->
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <img src="https://via.placeholder.com/600x260?text=Packing+Guide" class="card-img-top"
+                                alt="Packing Guide">
+                            <div class="card-body">
+                                <h5 class="card-title">Packing Smart: What to Bring on Your Trip</h5>
+                                <p class="card-text">Learn how to pack efficiently for any adventure.</p>
+                                <button class="btn btn-custom" data-bs-toggle="modal"
+                                    data-bs-target="#packingModal">Learn More</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Posted on <span>December 12, 2023</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional Blog Posts -->
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <img src="https://via.placeholder.com/600x260?text=Local+Cuisine" class="card-img-top"
+                                alt="Local Cuisine">
+                            <div class="card-body">
+                                <h5 class="card-title">Exploring Local Cuisines Around the World</h5>
+                                <p class="card-text">Taste your way through diverse cultures and flavors.</p>
+                                <button class="btn btn-custom" data-bs-toggle="modal"
+                                    data-bs-target="#localCuisineModal">Learn More</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Posted on <span>December 15, 2023</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <img src="https://via.placeholder.com/600x260?text=Travel+Budget" class="card-img-top"
+                                alt="Travel Budget">
+                            <div class="card-body">
+                                <h5 class="card-title">How to Travel on a Budget</h5>
+                                <p class="card-text">Smart tips for saving money while traveling.</p>
+                                <button class="btn btn-custom" data-bs-toggle="modal"
+                                    data-bs-target="#budgetTravelModal">Learn More</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Posted on <span>December 18, 2023</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <img src="https://via.placeholder.com/600x260?text=Travel+Safety" class="card-img-top"
+                                alt="Travel Safety">
+                            <div class="card-body">
+                                <h5 class="card-title">Staying Safe While Traveling</h5>
+                                <p class="card-text">Essential safety tips for every traveler.</p>
+                                <button class="btn btn-custom" data-bs-toggle="modal"
+                                    data-bs-target="#safetyModal">Learn More</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Posted on <span>December 20, 2023</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <img src="https://via.placeholder.com/600x260?text=Adventure+Travel" class="card-img-top"
+                                alt="Adventure Travel">
+                            <div class="card-body">
+                                <h5 class="card-title">Top 10 Adventure Travel Destinations</h5>
+                                <p class="card-text">Discover thrilling locations for your next adventure.</p>
+                                <button class="btn btn-custom" data-bs-toggle="modal"
+                                    data-bs-target="#adventureModal">Learn More</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Posted on <span>December 22, 2023</span></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Comment Section -->
+                <div class="comment-section">
+                    <h4>Comments</h4>
+                    <div id="commentsContainer">
+                        <p>No comments yet. Be the first to comment!</p>
+                    </div>
+                    <textarea class="form-control" id="commentInput" rows="3"
+                        placeholder="Leave a comment..."></textarea>
+                    <button class="btn btn-custom mt-2" onclick="addComment()">Post Comment</button>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-md-4">
+                <div class="sidebar">
+                    <h4>About Me</h4>
+                    <p>Welcome to my travel blog! I'm passionate about exploring new places and sharing tips to help you
+                        on your journey.</p>
+
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Travel Tips</a></li>
+                        <li><a href="#">Destinations</a></li>
+                        <li><a href="#">Food & Drink</a></li>
+                        <li><a href="#">Budget Travel</a></li>
+                    </ul>
+
+                    <h4>Follow Me</h4>
+                    <a href="#" class="btn btn-outline-primary"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="btn btn-outline-primary"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#" class="btn btn-outline-primary"><i class="fab fa-facebook"></i> Facebook</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Travel Blog. All Rights Reserved.</p>
+            <p><a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of
+                    Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Modal for Tips -->
+    <div class="modal fade" id="tipsModal" tabindex="-1" aria-labelledby="tipsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tipsModalLabel">10 Essential Tips for First-Time Travelers</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>1. Research your destination thoroughly.</p>
+                    <p>2. Make copies of important documents.</p>
+                    <p>3. Learn basic phrases in the local language.</p>
+                    <p>4. Keep some cash on hand.</p>
+                    <p>5. Stay aware of your surroundings.</p>
+                    <p>6. Consider travel insurance.</p>
+                    <p>7. Pack a portable charger.</p>
+                    <p>8. Stay hydrated.</p>
+                    <p>9. Embrace spontaneity.</p>
+                    <p>10. Have fun and enjoy the journey!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Packing Guide -->
+    <div class="modal fade" id="packingModal" tabindex="-1" aria-labelledby="packingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="packingModalLabel">Packing Smart: What to Bring on Your Trip</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>1. Start with a packing list.</p>
+                    <p>2. Choose versatile clothing.</p>
+                    <p>3. Use packing cubes.</p>
+                    <p>4. Roll clothes to minimize wrinkles.</p>
+                    <p>5. Limit shoes and accessories.</p>
+                    <p>6. Carry a small daypack.</p>
+                    <p>7. Pack a lightweight jacket.</p>
+                    <p>8. Don't forget chargers.</p>
+                    <p>9. Bring a first-aid kit.</p>
+                    <p>10. Leave space for souvenirs!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Local Cuisine -->
+    <div class="modal fade" id="localCuisineModal" tabindex="-1" aria-labelledby="localCuisineModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="localCuisineModalLabel">Exploring Local Cuisines Around the World</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Discover unique dishes and culinary delights across different cultures.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Budget Travel -->
+    <div class="modal fade" id="budgetTravelModal" tabindex="-1" aria-labelledby="budgetTravelModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="budgetTravelModalLabel">How to Travel on a Budget</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Learn tips to save money on accommodations, food, and attractions.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Travel Safety -->
+    <div class="modal fade" id="safetyModal" tabindex="-1" aria-labelledby="safetyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="safetyModalLabel">Staying Safe While Traveling</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Essential safety tips to keep you secure on your travels.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Adventure Travel -->
+    <div class="modal fade" id="adventureModal" tabindex="-1" aria-labelledby="adventureModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adventureModalLabel">Top 10 Adventure Travel Destinations</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Find out the most thrilling locations for your next adventure.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function searchPosts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const posts = document.querySelectorAll('#postsContainer .card');
+            posts.forEach(post => {
+                const title = post.querySelector('.card-title').textContent.toLowerCase();
+                post.style.display = title.includes(query) ? 'block' : 'none';
+            });
+        }
+
+        function addComment() {
+            const commentInput = document.getElementById('commentInput');
+            const commentText = commentInput.value;
+            if (commentText.trim() !== '') {
+                const commentsContainer = document.getElementById
+        function addComment() {
+            const commentInput = document.getElementById('commentInput');
+            const commentText = commentInput.value;
+            if (commentText.trim() !== '') {
+                const commentsContainer = document.getElementById('commentsContainer');
+                const newComment = document.createElement('p');
+                newComment.textContent = commentText;
+                            commentsContainer.appendChild(newComment);
+                            commentInput.value = ''; // Clear input
+                        }
+                    }
+                }
+            }
+                </script>
+    </body>
+    
+    </html>

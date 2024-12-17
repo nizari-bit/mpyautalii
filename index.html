@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore The World</title>
+    <link rel="icon" href="favicon.ico">
+    <!-- Apple Touch Icon for iOS devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Favicons for various sizes -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <!-- ICO Favicon for older browsers -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Manifest for Progressive Web Apps -->
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Safari pinned tab icon -->
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- Theme color for mobile browser address bar -->
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ06R1S6p1t9+H4s+bHgxw8x7AR4gqZ6T73F2PzOEXkQmbmuQf1khgA2Xnx2" crossorigin="anonymous">
+
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    
+    <div class="sidebar" id="mySidebar">
+        <div class="mbili">
+            <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+            <a href="index.html">Home</a>
+        </div>
+        <a href="destination.html">Destinations</a>
+        <a href="adventure.html">Adventure</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="events.html">Events</a>
+        <button id="theme-toggle" class="btn btn-outline-secondary">
+            <i class="fas fa-moon" id="theme-icon"></i>Theme
+        </button>
+    </div>
+
+    <div id="main-content">
+        <!-- Toggle Button -->
+        <span class="toggle-btn" onclick="openNav()"><i class="fas fa-bars" id="ficha"></i></span>
+
+        <!-- Header -->
+        <div class="tourism-header">
+            <img src="forest1.jpg" alt="">
+            <h1>Explore the World with Us</h1>
+            <p>Your adventure begins here</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="input-group">
+                <input type="text" class="form-control" id="searchBar" placeholder="Search for your dream destination">
+                <button class="btn" onclick="searchDestinations()">Search</button>
+            </div>
+        </div>
+
+        <div id="progressBar"></div>
+        <p id="niz">
+            Exploring the world is more than just visiting new places—it's about immersing yourself in diverse cultures,
+            experiencing breathtaking landscapes, and challenging your perceptions. It's a journey that opens your mind,
+            connects you with others, and helps you discover new perspectives. Whether you're hiking through lush forests,
+            strolling along bustling city streets, or relaxing on tranquil beaches, exploration broadens your horizons in ways
+            that enrich your life and soul.
+        </p>
+
+        <!-- Featured Destinations -->
+        <div class="content">
+            <div class="card">
+                <img src="datingscout-N3OVbfwflo4-unsplash.jpg" alt="Beach">
+                <div class="card-body">
+                    <h5 class="card-title">Amazing Beach</h5>
+                    <p class="card-text">Relax on pristine beaches with crystal-clear waters and beautiful sunsets.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="danilo-calic-DlgFZG0MvaU-unsplash.jpg" alt="Mountain">
+                <div class="card-body">
+                    <h5 class="card-title">Mountain Adventures</h5>
+                    <p class="card-text">Explore breathtaking mountain ranges and enjoy thrilling hiking experiences.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+            <section id="about-exploring">
+                <div class="container">
+                    <h2>About Exploring</h2>
+                    <p>
+                        Exploring the world is about uncovering hidden gems, embracing new cultures, and expanding your horizons.
+                        It’s a journey that transforms the way you see life and enriches your understanding of our shared humanity.
+                    </p>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h3>Why Explore?</h3>
+                            <p>
+                                From breathtaking landscapes to vibrant cities, every corner of the world holds a unique story
+                                waiting to be discovered.
+                                Whether you're seeking adventure, relaxation, or inspiration, the act of exploring offers something
+                                for everyone.
+                            </p>
+                            <ul>
+                                <li>Discover diverse cultures and traditions.</li>
+                                <li>Experience the wonders of nature.</li>
+                                <li>Challenge yourself with new adventures.</li>
+                            </ul>
+                        </div>
+                        <div class="about-video">
+                            <h1>Watch this video:</h1>
+                            <iframe width="640" height="360" src="https://www.youtube.com/embed/oL-X2iQi864"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <!-- Testimonials -->
+        <div class="testimonials">
+            <h2>What Our Travelers Say</h2>
+            <div class="testimonial-card">
+                <p>"The best vacation I've ever had! The scenery was breathtaking, and the adventure never stopped. Highly recommended!"</p>
+                <strong>- Jane Doe</strong>
+            </div>
+            <div class="testimonial-card">
+                <p>"An unforgettable experience. We explored the most stunning places and made memories that will last a lifetime."</p>
+                <strong>- John Smith</strong>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="social-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+            <p>&copy; 2024 Tourism Adventures. All Rights Reserved.</p>
+        </div>
+    </div>
+    <div class="newsletter">
+        <h3>Subscribe to Our Newsletter</h3>
+        <p>Get updates on the latest travel destinations and offers directly to your inbox.</p>
+        <form id="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    
+    <!-- Scroll-to-Top Button -->
+    <button id="scrollToTop" onclick="scrollToTop()">&#8679;</button>
+
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        const ficha = document.getElementById('ficha');
+        document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+
+    // Load saved theme from local storage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+});
+
+        function openNav() {
+            document.getElementById("mySidebar").style.left = "0";
+            document.getElementById("main-content").style.marginLeft = "250px";
+            ficha.style.display = "none";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.left = "-250px";
+            document.getElementById("main-content").style.marginLeft = "0";
+            ficha.style.display = "block";
+        }
+
+        function searchDestinations() {
+            const query = document.getElementById('searchBar').value;
+            alert(`Searching for: ${query}`);
+        }
+        // Function to show/hide the scroll-to-top button
+            window.onscroll = function () {
+                const scrollButton = document.getElementById("scrollToTop");
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    scrollButton.style.display = "block";
+                } else {
+                    scrollButton.style.display = "none";
+                }
+            };
+
+            // Function to scroll to the top smoothly
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+            window.onscroll = function () {
+                    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (window.scrollY / scrollHeight) * 100;
+                    document.getElementById("progressBar").style.width = scrolled + "%";
+                };
+
+    </script>
+</body>
+
+</html>

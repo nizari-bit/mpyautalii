@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .sidebar {
+            height: 100vh;
+            background-color: #343a40;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            width: 250px;
+        }
+
+        .sidebar a {
+            color: white;
+            padding: 10px 15px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .table th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: absolute;
+                width: 100%;
+                height: auto;
+                padding: 10px;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar position-fixed">
+        <h2 class="text-center">Admin Menu</h2>
+        <a href="#dashboardTab" data-bs-toggle="tab">Dashboard</a>
+        <a href="#userManagementTab" data-bs-toggle="tab">User Management</a>
+        <a href="#adventureCategoriesTab" data-bs-toggle="tab">Adventure Categories</a>
+        <a href="#analyticsTab" data-bs-toggle="tab">Analytics</a>
+        <a href="#contentManagementTab" data-bs-toggle="tab">Content Management</a>
+        <a href="#settingsTab" data-bs-toggle="tab">Settings</a>
+        <a href="#feedbackTab" data-bs-toggle="tab">Feedback & Support</a>
+        <a href="#paymentManagementTab" data-bs-toggle="tab">Payment Management</a>
+        <a href="#eventManagementTab" data-bs-toggle="tab">Event Management</a>
+    </div>
+
+    <div class="content">
+        <h1>Admin Dashboard</h1>
+
+        <div class="tab-content mt-3">
+            <!-- Dashboard Tab -->
+            <div class="tab-pane fade show active" id="dashboardTab">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Total Users</h5>
+                                <p class="card-text" id="totalUsers">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Active Adventures</h5>
+                                <p class="card-text" id="activeAdventures">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Pending Reviews</h5>
+                                <p class="card-text" id="pendingReviews">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Management Tab -->
+            <div class="tab-pane fade" id="userManagementTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Add New User</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="addUserForm">
+                            <div class="mb-3">
+                                <label for="userName" class="form-label">User Name</label>
+                                <input type="text" class="form-control" id="userName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="userEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userRole" class="form-label">Role</label>
+                                <select class="form-select" id="userRole" required>
+                                    <option value="admin">Admin</option>
+                                    <option value="user">User</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add User</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5>Registered Users</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>User Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userList">
+                                <!-- User items will be appended here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adventure Categories Tab -->
+            <div class="tab-pane fade" id="adventureCategoriesTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Add New Category</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="addCategoryForm">
+                            <div class="mb-3">
+                                <label for="categoryName" class="form-label">Category Name</label>
+                                <input type="text" class="form-control" id="categoryName" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Category</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5>Existing Categories</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categoryList">
+                                <!-- Category items will be appended here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="tab-pane fade" id="analyticsTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Analytics Overview</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Statistics and graphs will be displayed here.</p>
+                        <!-- Placeholder for graphs/charts -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Management Tab -->
+            <div class="tab-pane fade" id="contentManagementTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Manage Site Content</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Content management options will be displayed here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="tab-pane fade" id="settingsTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Site Settings</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Settings options will be displayed here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback & Support Tab -->
+            <div class="tab-pane fade" id="feedbackTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>User Feedback and Support</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Feedback and support tickets will be displayed here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Management Tab -->
+            <div class="tab-pane fade" id="paymentManagementTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Payment Management</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Payment management options will be displayed here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Management Tab -->
+            <div class="tab-pane fade" id="eventManagementTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Event Management</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Manage events and promotions here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Example data management for users and categories
+        const users = [];
+        const categories = [];
+
+        // Add user functionality
+        document.getElementById('addUserForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const userName = document.getElementById('userName').value.trim();
+            const userEmail = document.getElementById('userEmail').value.trim();
+            const userRole = document.getElementById('userRole').value;
+            users.push({ name: userName, email: userEmail, role: userRole });
+            displayUsers();
+            updateDashboard();
+            this.reset();
+        });
+
+        // Display users
+        function displayUsers() {
+            const userList = document.getElementById('userList');
+            userList.innerHTML = '';
+            users.forEach((user, index) => {
+                userList.innerHTML += `
+                    <tr>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>${user.role}</td>
+                        <td>
+                            <button class="btn btn-danger" onclick="deleteUser(${index})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        // Delete user
+        function deleteUser(index) {
+            users.splice(index, 1);
+            displayUsers();
+            updateDashboard();
+        }
+
+        // Add category functionality
+        document.getElementById('addCategoryForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const categoryName = document.getElementById('categoryName').value.trim();
+            categories.push({ name: categoryName });
+            displayCategories();
+            this.reset();
+        });
+
+        // Display categories
+        function displayCategories() {
+            const categoryList = document.getElementById('categoryList');
+            categoryList.innerHTML = '';
+            categories.forEach((category, index) => {
+                categoryList.innerHTML += `
+                    <tr>
+                        <td>${category.name}</td>
+                        <td>
+                            <button class="btn btn-danger" onclick="deleteCategory(${index})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        // Delete category
+        function deleteCategory(index) {
+            categories.splice(index, 1);
+            displayCategories();
+        }
+
+        // Update dashboard statistics
+        function updateDashboard() {
+            document.getElementById('totalUsers').innerText = users.length;
+            document.getElementById('activeAdventures').innerText = categories.length; // Placeholder for actual data
+            document.getElementById('pendingReviews').innerText = 0; // Placeholder for actual data
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
